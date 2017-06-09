@@ -3,4 +3,5 @@ image: Visual Studio 2013
 init:
   - git config --global core.autocrlf input
 clone_folder: c:\projects\netmap
-build_script: WINDOWS\build.bat
+before_build: cd WINDOWS
+build_script: build.bat
