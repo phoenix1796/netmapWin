@@ -10,12 +10,15 @@ after_build:
   - dir c:\projects\netmap
   - cd c:\projects\netmap
   - 7z a myapp.zip WINDOWS
+  - appveyor PushArtifact myapp.zip
 on_success:
   - cd c:\projects\netmap
   - 7z a myapp.zip WINDOWS
+  - appveyor PushArtifact myapp.zip
 on_finish:
   - cd c:\projects\netmap
   - 7z a myapp.zip WINDOWS
+  - appveyor PushArtifact myapp.zip
 artifacts:
   - path: myapp.zip
     name: myapp.zip
