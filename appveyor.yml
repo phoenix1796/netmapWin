@@ -1,12 +1,14 @@
-  version: 1.0.{build}
-  image: Visual Studio 2013
-  init:
-    - git config --global core.autocrlf input
-  clone_folder: c:\projects\netmap
-  before_build: cd WINDOWS
-  build_script: c:\projects\netmap\build.bat
-  build: off
-  after_build: c:\projects\netmap\artifacts.bat
-  artifacts:
-    - path: c:\projects\netmap\myapp.zip
-      name: MyApp
+version: 1.0.{build}
+image: Visual Studio 2013
+init:
+  - git config --global core.autocrlf input
+clone_folder: c:\projects\netmap
+before_build: cd WINDOWS
+build_script: msbuild netmap.sln /t:Build /p:Configuration="Win7 Debug" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" -p:Platform=Win32
+build: off
+after_build:
+  - cd c:\projects\netmap
+  - 7z a myapp.zip WINDOWS
+artifacts:
+  - path: myapp.zip
+    name: myapp.zip
