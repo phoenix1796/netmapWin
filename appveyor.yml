@@ -6,3 +6,7 @@ clone_folder: c:\projects\netmap
 before_build: cd WINDOWS
 build_script: build.bat
 build: off
+after_build: artifacts.bat
+artifacts:
+  - path: myapp.zip
+    name: MyApp
