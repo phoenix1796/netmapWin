@@ -7,6 +7,13 @@ before_build: cd WINDOWS
 build_script: msbuild netmap.sln /t:Build /p:Configuration="Win7 Debug" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" -p:Platform=Win32
 build: off
 after_build:
+  - dir c:\projects\netmap
+  - cd c:\projects\netmap
+  - 7z a myapp.zip WINDOWS
+on_success:
+  - cd c:\projects\netmap
+  - 7z a myapp.zip WINDOWS
+on_finish:
   - cd c:\projects\netmap
   - 7z a myapp.zip WINDOWS
 artifacts:
