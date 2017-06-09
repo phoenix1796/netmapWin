@@ -1,2 +1,2 @@
-cd ..
-7z WINDOWS myapp.zip
+cd %APPVEYOR_BUILD_FOLDER%
+7z a myapp.zip WINDOWS
