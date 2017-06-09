@@ -8,16 +8,16 @@ build_script: msbuild netmap.sln /t:Build /p:Configuration="Win7 Debug" /logger:
 build: off
 after_build:
   - dir c:\projects\netmap
-  - cd c:\projects\netmap
-  - 7z a myapp.zip WINDOWS
+  - cd c:\projects
+  - 7z a myapp.zip netmap
   - appveyor PushArtifact myapp.zip
 on_success:
-  - cd c:\projects\netmap
-  - 7z a myapp.zip WINDOWS
+  - cd c:\projects
+  - 7z a myapp.zip netmap
   - appveyor PushArtifact myapp.zip
 on_finish:
-  - cd c:\projects\netmap
-  - 7z a myapp.zip WINDOWS
+  - cd c:\projects
+  - 7z a myapp.zip netmap
   - appveyor PushArtifact myapp.zip
 artifacts:
   - path: myapp.zip
