@@ -1,3 +1,6 @@
+HELP REQUIRED , On compiling the Netmap framework for windows , there is a BSOD , We will be posting this in the issue of this repo as well as the original repo .
+INFO PROVIDED : Crash MINIDUMPS , for anything else you please email me at : phoenix.prog1796@gmail.com
+
 	    Netmap - a framework for fast packet I/O
 	VALE -  a Virtual Local Ethernet using the netmap API
 ========================================================================
